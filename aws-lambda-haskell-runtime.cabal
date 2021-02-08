@@ -58,6 +58,7 @@ library
     , http-client
     , http-types
     , path >0.7
+    , filepath
     , path-io
     , safe-exceptions-checked
     , template-haskell
