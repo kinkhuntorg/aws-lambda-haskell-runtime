@@ -11,7 +11,7 @@ import Data.Function ((&))
 import qualified Data.Maybe as Maybe
 import Data.Text (Text)
 import qualified Data.Text as Text
-import System.Filepath.Posix (replaceExtension)
+import System.FilePath.Posix (replaceExtension)
 
 import Path
 import qualified Path.IO as PathIO
