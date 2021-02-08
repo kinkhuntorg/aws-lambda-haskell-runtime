@@ -11,6 +11,7 @@ import Data.Function ((&))
 import qualified Data.Maybe as Maybe
 import Data.Text (Text)
 import qualified Data.Text as Text
+import System.Filepath.Posix (replaceExtension)
 
 import Path
 import qualified Path.IO as PathIO
@@ -42,7 +43,7 @@ modulesWithHandler files =
   & Monad.filterM containsHandler
  where
   isHaskellModule file =
-    fileExtension file == Just ".hs"
+    fileExtension file == ".hs"
     && isNotIgnoredPath file
 
   isNotIgnoredPath file =
@@ -56,7 +57,6 @@ handlerNames modules =
  where
   changeExtensionToHandler file =
     replaceExtension ".handler" file
-    & Maybe.fromJust  -- The path will be always parsable, as we just replace the extension
 
 containsHandler :: Path Rel File -> IO Bool
 containsHandler file = do
