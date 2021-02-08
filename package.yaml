@@ -27,6 +27,7 @@ library:
     - safe-exceptions-checked
     - path > 0.7
     - path-io
+    - filepath
     - unordered-containers
     - case-insensitive
   source-dirs: src
