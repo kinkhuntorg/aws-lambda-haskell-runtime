@@ -52,8 +52,8 @@ modulesWithHandler files =
 
 handlerNames :: [Path Rel File] -> [Text]
 handlerNames modules =
-  fmap changeExtensionToHandler modules
-  & fmap (Text.pack . toFilePath)
+  fmap changeExtensionToHandler (fmap toFilePath modules)
+  & fmap (Text.pack)
  where
   changeExtensionToHandler file =
     replaceExtension ".handler" file
