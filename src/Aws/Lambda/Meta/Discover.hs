@@ -52,11 +52,7 @@ modulesWithHandler files =
 
 handlerNames :: [Path Rel File] -> [Text]
 handlerNames modules =
-  fmap changeExtensionToHandler (fmap toFilePath modules)
-  & fmap (Text.pack)
- where
-  changeExtensionToHandler file =
-    replaceExtension ".handler" file
+  fmap (Text.pack . replaceExtension ".handler" . toFilePath) modules)
 
 containsHandler :: Path Rel File -> IO Bool
 containsHandler file = do
